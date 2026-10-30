@@ -2,7 +2,7 @@
   "title": "Agent Control Map",
   "subtitle": "Who holds the keys of on-chain agent infrastructure. Public data only.",
   "version": "v1 draft",
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "license": "CC BY 4.0. Attribution: Agent Control Map (@itpvl4)",
   "entries": [
     {"id":"erc8004","name":"ERC-8004 registries (Identity, Reputation, third proxy)","keys":"yes",
@@ -11,7 +11,7 @@
      "contracts":{"identity":"0x8004A169FB4a3325136EB29fA0ceB6D2e539a432","reputation":"0x8004BAa17C55a88189AE136b182e5fdA19dE9b63","third":"0x8004cc8439f36fd5f9f049d9ff86523df6daab58"},
      "verify":"Logs: Upgraded 0xbc7cd75a...2d3b, OwnershipTransferred 0x8be0079c...57e0 on each proxy"},
     {"id":"usdc-base","name":"USDC on Base (token under x402 payments)","keys":"yes",
-     "summary":"Proxy admin and owner are plain addresses (no code). The address that can freeze (blacklist) accounts is a plain address that is actively used. The master minter is a contract. Freezing is a standard issuer compliance function; roles other than these not checked.",
+     "summary":"Proxy admin and owner are plain addresses (no code). The address that can freeze (blacklist) accounts is a plain address that is actively used. The pauser (can halt all transfers) is also a plain address; on Base it has only received 0.5 ETH (2023) and has never sent a transaction. The master minter is a contract. Freezing and pausing are standard issuer compliance functions; roles other than these not checked.",
      "contract":"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913","chains":["Base"],
      "verify":"Logs: AdminChanged, OwnershipTransferred, BlacklisterChanged, MasterMinterChanged on the proxy"},
     {"id":"x402-batch","name":"x402 BatchSettlement and deposit collectors","keys":"none",
@@ -29,6 +29,6 @@
      "summary":"Verified source on Ethereum: not a proxy; no owner, upgrade or pause functions. Used by x402 Permit2 collectors.",
      "contract":"0x000000000022D473030F116dDEE9F6B43aC78BA3","chains":["Ethereum (checked)"],"verify":"Contract ABI on the explorer"}
   ],
-  "not_checked": ["Base, OP, BNB, Gnosis, Avalanche for ERC-8004", "USDC pauser role", "other chains for EntryPoint and Permit2"],
+  "not_checked": ["Base, OP, BNB, Gnosis, Avalanche for ERC-8004", "other chains for EntryPoint and Permit2"],
   "disclaimer": "Observations from public on-chain data, not vulnerability reports and not security advice. A plain address means no contract code at that address; how a key is stored cannot be seen on-chain. Corrections welcome."
 }
